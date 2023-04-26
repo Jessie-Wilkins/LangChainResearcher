@@ -28,7 +28,7 @@ httpx==0.23.3
 huggingface-hub==0.13.4
 idna==3.4
 jaraco.context==4.3.0
-langchain==0.0.147
+langchain==0.0.149
 marshmallow==3.19.0
 marshmallow-enum==1.5.1
 more-itertools==9.1.0
@@ -42,6 +42,7 @@ packaging==23.1
 pydantic==1.10.7
 pyowm==3.3.0
 PySocks==1.7.1
+pytest==7.3.1
 PyYAML==6.0
 regex==2023.3.23
 requests==2.28.2
