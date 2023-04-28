@@ -5,11 +5,17 @@ The purpose of this project is to learn LangChain more and see how far I can pus
 
 ## What's needed
 Python 3.10
+OpenAI key
 
 ## Installation
 python3 -m env <environment_name> (highly recommend virtual environment)
 source <environment_name>/bin/activate (related to above)
 pip install -r requirements
+
+### Warning for Mac users
+The python package hnwl fails to buid on the Mac.
+To bypass this, pass in a flag to the pip command like this:
+ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future" pip install -r requirements
 
 ## Usage
 python main.py
