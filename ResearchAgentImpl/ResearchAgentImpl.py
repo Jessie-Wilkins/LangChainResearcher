@@ -1,8 +1,9 @@
-from langchain.agents import load_tools
-from langchain.agents import get_all_tool_names
-from langchain.agents import initialize_agent
-from langchain.agents import AgentType
+from langchain.agents import load_tools, initialize_agent, AgentType
 from langchain.llms import OpenAI
+from ExtraTools.FixedWriteFileTool import FixedWriteFileTool
+from langchain.tools.file_management.read import ReadFileTool
+from langchain.memory import ConversationBufferMemory
+
 
 class ResearchAgentImpl:
     @staticmethod
@@ -11,6 +12,12 @@ class ResearchAgentImpl:
 
         tools = load_tools(["ddg-search", "llm-math"], llm=llm)
 
-        agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+        tools.append(FixedWriteFileTool(root_dir="./"))
 
-        agent.run("What is the Capital of Peru?")
+        tools.append(ReadFileTool())
+
+        memory = ConversationBufferMemory()
+
+        agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, memory=memory)
+
+        agent.run("Give me an extensive list of dishes from Peru and write it in a text document?")
