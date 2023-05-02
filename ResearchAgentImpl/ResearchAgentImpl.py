@@ -12,7 +12,7 @@ class ResearchAgentImpl:
 
         tools = load_tools(["ddg-search", "llm-math"], llm=llm)
 
-        tools.append(FixedWriteFileTool(root_dir="./"))
+        tools.append(FixedWriteFileTool(root_dir="./output/"))
 
         tools.append(ReadFileTool())
 
