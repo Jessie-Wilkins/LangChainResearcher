@@ -1,0 +1,16 @@
+import pytest
+import os
+import sys
+from LangChainResearcher.ResearchAgentImpl.ResearchAgentImpl import ResearchAgentImpl
+from langchain.llms.fake import FakeListLLM
+from langchain.output_parsers import OutputFixingParser
+
+def test_research_agent_impl_query():
+    responses = [
+        "Action: FixedWriteFileTool\nAction Input: file.txt, text",
+        "Final Answer: File created successfully"
+    ]
+    fake_llm = FakeListLLM(responses=responses)
+    result = ResearchAgentImpl.Run(fake_llm)
+
+    assert result == "File created successfully"
