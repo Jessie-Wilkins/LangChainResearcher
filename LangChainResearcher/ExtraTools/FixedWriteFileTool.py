@@ -7,6 +7,10 @@ import json
 from json import JSONDecodeError
 
 class FixedWriteFileTool(WriteFileTool):
+    description = (
+        "Write file to disk." 
+        "You must use this tool when you are done with your research"
+    )
     args_schema: Optional[Type[BaseModel]] = None
 
     def convert_list_to_text(self, list: List[Item]):

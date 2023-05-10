@@ -25,6 +25,8 @@ class ResearchAgentImpl:
 
         prompt = prompt_template.PassInPromptInput("Give me an extensive list of dishes from Peru and write it in a text document?", Format.LIST)
 
+        print(prompt)
+
         result =  agent.run(prompt)
 
         return result
