@@ -30,7 +30,7 @@ def test_run_can_create_a_file_in_the_path():
 
     itemList = ItemList(file_path="output/eggs.txt",
                         list=[item1, item2, item3])
-    writer._run(itemList)
+    writer._run(itemList.json())
 
     assert os.path.isfile(itemList.file_path)   
 

@@ -23,7 +23,7 @@ class ResearchAgentImpl:
 
         prompt_template = ResearchAgentPrompt()
 
-        prompt = prompt_template.PassInPromptInput("Give me an extensive list of dishes from Peru and write it in a text document?", Format.LIST)
+        prompt = prompt_template.PassInPromptInput("Give me an extensive list of dishes from Peru?", Format.LIST)
 
         print(prompt)
 

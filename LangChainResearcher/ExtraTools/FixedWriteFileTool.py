@@ -26,6 +26,7 @@ class FixedWriteFileTool(WriteFileTool):
 
         
 
-    def _run(self, itemList: ItemList) -> str:
+    def _run(self, itemListString: str) -> str:
+        itemList = ItemList.parse_raw(itemListString)
         item_list_string=self.convert_list_to_text(itemList.list)
         return super()._run(itemList.file_path, item_list_string)
