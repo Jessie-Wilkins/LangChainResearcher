@@ -19,11 +19,10 @@ You browse the web for different articles and read on the given topic that has b
 When you have finished collecting your findings via the search engine, write the content you have collected to a text file via the file write tools.
 You are not done until you have written your findings to a text file using the format specified.
 
-Write to the file using the following format:
+Write the output to the file using the following format:
 """+list_format_instructions+"""
 An example of this would be the following:
 """+itemList.json()+"""
-Always begin with a '{' and end with a '}'
 
 Research all the different kinds of eggs in the world."""
 
@@ -36,7 +35,7 @@ You browse the web for different articles and read on the given topic that has b
 When you have finished collecting your findings via the search engine, write the content you have collected to a text file via the file write tools.
 You are not done until you have written your findings to a text file using the format specified.
 
-Write to the file using the following format:
+Write the output to the file using the following format:
 """+summary_format_instructions+"""
 
 Research all the different kinds of eggs in the world."""
