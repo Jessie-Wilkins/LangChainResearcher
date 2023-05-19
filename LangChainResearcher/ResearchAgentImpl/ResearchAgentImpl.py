@@ -1,14 +1,13 @@
 from langchain.agents import load_tools, initialize_agent, AgentType
-from langchain.llms import OpenAI
 from LangChainResearcher.ExtraTools.FixedWriteFileTool import FixedWriteFileTool
-from LangChainResearcher.ResearchAgentImpl.ResearchAgentPrompt import ResearchAgentPrompt, Format
+from LangChainResearcher.ResearchAgentImpl.ResearchAgentPrompt import ResearchAgentPrompt
 from langchain.tools.file_management.read import ReadFileTool
 from langchain.memory import ConversationBufferMemory
 
 
 class ResearchAgentImpl:
     @staticmethod
-    def Run(llm):
+    def Run(llm, query, format):
         llm = llm
 
         tools = load_tools(["ddg-search", "llm-math"], llm=llm)
@@ -23,7 +22,7 @@ class ResearchAgentImpl:
 
         prompt_template = ResearchAgentPrompt()
 
-        prompt = prompt_template.PassInPromptInput("Give me an extensive list of dishes from Peru?", Format.LIST)
+        prompt = prompt_template.PassInPromptInput(query, format)
 
         print(prompt)
 

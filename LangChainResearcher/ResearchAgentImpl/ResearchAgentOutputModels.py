@@ -11,4 +11,4 @@ class ItemList(BaseModel):
         
 class Summary(BaseModel):
     file_path: str = Field(description="the file path that the content will be written to.")
-    summary: str = Field(description="This is a several paragraph essay describing the results of the research.")
+    summary: str = Field(description="Several sentences describing the results of the research.")

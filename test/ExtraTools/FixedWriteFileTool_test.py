@@ -67,6 +67,6 @@ def test_run_can_handle_an_issue_with_the_object_structure():
     result = writer._run(itemList.json()+"$$")
 
     assert result.replace(" ", "").replace("\n","") == """The string input has the incorrect format; 
-    please correct the format based on the previous format instructions and write to the file.
-""".replace(" ", "").replace("\n", "")
+    please correct the format based on the previous format instructions and write to the file. Also, check your input:
+""".replace(" ", "").replace("\n", "")+itemList.json().replace(" ", "").replace("\n", "")+"""$$""".replace(" ", "").replace("\n", "")
 

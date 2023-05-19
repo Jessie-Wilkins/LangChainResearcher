@@ -18,7 +18,9 @@ You are not done until you have written your findings to a text file using the f
 Write the output to the file using the following format:
 {format}
     
-{request}"""
+Topic: {request}
+And remember to write the results of this research to a file!"""
+
 
 
     def PassInPromptInput(self, request: str, format: Format) -> str:

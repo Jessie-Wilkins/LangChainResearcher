@@ -24,7 +24,8 @@ Write the output to the file using the following format:
 An example of this would be the following:
 """+itemList.json()+"""
 
-Research all the different kinds of eggs in the world."""
+Topic: Research all the different kinds of eggs in the world.
+And remember to write the results of this research to a file!"""
 
     summary_output_parser = PydanticOutputParser(pydantic_object=Summary)
 
@@ -38,6 +39,7 @@ You are not done until you have written your findings to a text file using the f
 Write the output to the file using the following format:
 """+summary_format_instructions+"""
 
-Research all the different kinds of eggs in the world."""
+Topic: Research all the different kinds of eggs in the world.
+And remember to write the results of this research to a file!"""
 
     request = "Research all the different kinds of eggs in the world."

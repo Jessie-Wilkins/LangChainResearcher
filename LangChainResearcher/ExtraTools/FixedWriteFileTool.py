@@ -45,12 +45,13 @@ class FixedWriteFileTool(WriteFileTool):
             print("Not Summary")
         
 
-    def _run(self, itemListString: str) -> str:
+    def _run(self, formattedString: str) -> str:
         format_error_string = """The string input has the incorrect format; 
-    please correct the format based on the previous format instructions and write to the file."""
-        if(self.check_format(itemListString) == Format.LIST):
+    please correct the format based on the previous format instructions and write to the file. Also, check your input:
+"""+formattedString
+        if(self.check_format(formattedString) == Format.LIST):
             try:
-                itemList = ItemList.parse_raw(itemListString)
+                itemList = ItemList.parse_raw(formattedString)
             except JSONDecodeError:
                 return format_error_string
             except ValidationError:
@@ -58,8 +59,8 @@ class FixedWriteFileTool(WriteFileTool):
             else:
                 item_list_string=self.convert_list_to_text(itemList.list)
                 return super()._run(itemList.file_path, item_list_string)
-        elif(self.check_format(itemListString) == Format.SUMMARY):
-            summaryFormat = Summary.parse_raw(itemListString)
+        elif(self.check_format(formattedString) == Format.SUMMARY):
+            summaryFormat = Summary.parse_raw(formattedString)
             return super()._run(summaryFormat.file_path, summaryFormat.summary)
         else:
             return format_error_string
