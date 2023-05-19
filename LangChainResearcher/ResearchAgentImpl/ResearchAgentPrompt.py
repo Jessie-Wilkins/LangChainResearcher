@@ -11,8 +11,8 @@ class ResearchAgentPrompt:
     def __init__(self):
 
         self.template_str = """ You are a research agent. 
-You browse the web for different articles and read on the given topic that has been requested for you to research.
-When you have finished collecting your findings via the search engine, write the content you have collected to a text file via the file write tools.
+You browse the web and wikipedia for different articles and read on the given topic that has been requested for you to research.
+When you have finished collecting your findings via the search engine and wikipedia, write the content you have collected to a text file via the file write tools.
 You are not done until you have written your findings to a text file using the format specified.
 
 Write the output to the file using the following format:

@@ -10,7 +10,7 @@ class ResearchAgentImpl:
     def Run(llm, query, format):
         llm = llm
 
-        tools = load_tools(["ddg-search", "llm-math"], llm=llm)
+        tools = load_tools(["ddg-search", "llm-math", "wikipedia"], llm=llm)
 
         tools.append(FixedWriteFileTool(root_dir="./output/"))
 
