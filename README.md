@@ -5,7 +5,7 @@ The purpose of this project is to learn LangChain more and see how far I can pus
 
 ## What's needed
 Python 3.10
-OpenAI key
+OpenAI key (see [here](https://platform.openai.com/docs/guides/production-best-practices/api-keys) on how to get one)
 
 ## Installation
 python3 -m env <environment_name> (highly recommend virtual environment)
@@ -18,10 +18,10 @@ To bypass this, pass in a flag to the pip command like this:
 ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future" pip install -r requirements
 
 ## Usage
-python main.py
+```python main.py```
 
-## Documentation
-TBD
+## Testing
+```pytest```
 
 ## Authors
 Jessie Wilkins

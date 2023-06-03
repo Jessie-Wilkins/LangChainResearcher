@@ -14,8 +14,6 @@ class ResearchAgentImpl:
 
         tools.append(FixedWriteFileTool(root_dir="./output/"))
 
-        tools.append(ReadFileTool())
-
         memory = ConversationBufferMemory()
 
         agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, memory=memory)
@@ -23,8 +21,6 @@ class ResearchAgentImpl:
         prompt_template = ResearchAgentPrompt()
 
         prompt = prompt_template.PassInPromptInput(query, format)
-
-        print(prompt)
 
         result =  agent.run(prompt)
 

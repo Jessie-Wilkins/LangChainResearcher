@@ -45,6 +45,12 @@ An example of this would be the following:
 
         else:
             format_instructions = PydanticOutputParser(pydantic_object=Summary).get_format_instructions()
+            summaryExample = self.create_summary_example()
+            example = """
+An example of this would be the following:
+"""+summaryExample.json()
+
+            format_instructions = format_instructions+example
 
         return format_instructions
 
@@ -58,3 +64,10 @@ An example of this would be the following:
                         list=[item1, item2, item3])
                     
         return itemListExample
+
+    def create_summary_example(self):
+        summary = "Eggs are laid by animals and come from birds, reptiles, fish, amphibians, and even some mamals. They are also consumed in a variey of dishes."
+
+        summaryExample = Summary(file_path="output/eggs.txt", summary=summary)
+
+        return summaryExample

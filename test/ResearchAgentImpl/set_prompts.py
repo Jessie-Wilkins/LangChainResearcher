@@ -13,6 +13,9 @@ class SetPrompts:
 
     itemList = ItemList(file_path="output/eggs.txt",
                         list=[item1, item2, item3])
+    summary = "Eggs are laid by animals and come from birds, reptiles, fish, amphibians, and even some mamals. They are also consumed in a variey of dishes."
+
+    summaryExample = Summary(file_path="output/eggs.txt", summary=summary)
     
     general_prompt_prefix = """ You are a research agent. 
 You browse the web and wikipedia for different articles and read on the given topic that has been requested for you to research.
@@ -35,6 +38,8 @@ An example of this would be the following:
 
     summary_format_instructions = summary_output_parser.get_format_instructions()
 
-    summary_prompt =   general_prompt_prefix+summary_format_instructions+general_prompt_suffix
+    summary_prompt =   general_prompt_prefix+summary_format_instructions+"""
+    An example of this would be the following:
+    """+summaryExample.json()+general_prompt_suffix
 
     request = "Research all the different kinds of eggs in the world."

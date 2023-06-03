@@ -32,17 +32,17 @@ class FixedWriteFileTool(WriteFileTool):
             ItemList.parse_raw(formatted_string)
             return Format.LIST
         except JSONDecodeError:
-            print("Not List")
+            print("\nNot List")
         except ValidationError:
-            print("Not List")
+            print("\nNot List")
         
         try:
             Summary.parse_raw(formatted_string)
             return Format.SUMMARY
         except JSONDecodeError:
-            print("Not Summary")
+            print("\nNot Summary")
         except ValidationError:
-            print("Not Summary")
+            print("\nNot Summary")
         
 
     def _run(self, formattedString: str) -> str:
