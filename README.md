@@ -20,6 +20,9 @@ ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future" pip ins
 ## Usage
 ```python main.py```
 
+### General Warning
+The LLM sometimes gives inconsistent results and even can produce errors. If this happens, run it again
+
 ## Testing
 ```pytest```
 
