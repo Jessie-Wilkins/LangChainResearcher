@@ -12,14 +12,14 @@ class ResearchAgentPrompt:
 
         self.template_str = """ You are a research agent. 
 You browse the web and wikipedia for different articles and read on the given topic that has been requested for you to research.
-When you have finished collecting your findings via the search engine and wikipedia, write the content you have collected to a text file via the file write tools.
-You are not done until you have written your findings to a text file using the format specified.
+When you have finished collecting your findings via the search engine and wikipedia, delete all files that exist via the delete tool (except the file you are currently writing to) and write the content you have collected to a text file (the name should be the same as the query) via the file write tools.
+You are not done until you have delete all existing files (except the file you are currently writing to) and written your findings to a text file (the name should be the same as the query) using the format specified.
 
 Write the output to the file using the following format:
 {format}
     
 Topic: {request}
-And remember to write the results of this research to a file!"""
+And remember delete all currently existing files (except the file you are currently writing to) and to write the results of this research to a file (the name should be the same as the query)!"""
 
 
 
@@ -60,7 +60,7 @@ An example of this would be the following:
         item2 = Item(item="Duck Eggs", description="Eggs that come from ducks")
         item3 = Item(item="Robin Eggs", description="Eggs that come from robins")
 
-        itemListExample = ItemList(file_path="output/eggs.txt",
+        itemListExample = ItemList(file_path="eggs.txt",
                         list=[item1, item2, item3])
                     
         return itemListExample
@@ -68,6 +68,6 @@ An example of this would be the following:
     def create_summary_example(self):
         summary = "Eggs are laid by animals and come from birds, reptiles, fish, amphibians, and even some mamals. They are also consumed in a variey of dishes."
 
-        summaryExample = Summary(file_path="output/eggs.txt", summary=summary)
+        summaryExample = Summary(file_path="eggs.txt", summary=summary)
 
         return summaryExample

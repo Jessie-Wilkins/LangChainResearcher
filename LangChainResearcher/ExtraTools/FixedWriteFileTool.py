@@ -10,7 +10,7 @@ from json import JSONDecodeError
 class FixedWriteFileTool(WriteFileTool):
     description = (
         "Write file to disk." 
-        "You must use this tool when you are done with your research"
+        "You must use this tool when you are done with your research."
     )
     args_schema: Optional[Type[BaseModel]] = None
 
@@ -46,6 +46,7 @@ class FixedWriteFileTool(WriteFileTool):
         
 
     def _run(self, formattedString: str) -> str:
+        formattedString = formattedString.replace("```", "")
         format_error_string = """The string input has the incorrect format; 
     please correct the format based on the previous format instructions and write to the file. Also, check your input:
 """+formattedString
