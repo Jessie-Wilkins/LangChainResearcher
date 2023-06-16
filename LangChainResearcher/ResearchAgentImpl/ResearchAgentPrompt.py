@@ -10,16 +10,18 @@ class Format(Enum):
 class ResearchAgentPrompt:
     def __init__(self):
 
-        self.template_str = """ You are a research agent. 
+        self.template_str = """  You are a research agent. 
 You browse the web and wikipedia for different articles and read on the given topic that has been requested for you to research.
-When you have finished collecting your findings via the search engine and wikipedia, delete all files that exist via the delete tool (except the file you are currently writing to) and write the content you have collected to a text file (the name should be the same as the query) via the file write tools.
-You are not done until you have delete all existing files (except the file you are currently writing to) and written your findings to a text file (the name should be the same as the query) using the format specified.
+When you have finished collecting your findings via the search engine and wikipedia, create a summarization of your findings via the output_formatter tool in the format specified.
+The Final Answer will be the summarization returned from the output_formatter tool.
+You are not done until you have summarized your findings via the output_formatter tool.
+The Final Answer will be the summarization returned from the output_formatter tool.
 
-Write the output to the file using the following format:
 {format}
     
 Topic: {request}
-And remember delete all currently existing files (except the file you are currently writing to) and to write the results of this research to a file (the name should be the same as the query)!"""
+And remember to summarize the results of this research via the output_formatter tool!
+The Final Answer will be the summarization returned from the output_formatter tool!"""
 
 
 

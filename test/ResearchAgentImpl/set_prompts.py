@@ -17,18 +17,21 @@ class SetPrompts:
 
     summaryExample = Summary(file_path="eggs.txt", summary=summary)
     
-    general_prompt_prefix = """ You are a research agent. 
+    general_prompt_prefix = """  You are a research agent. 
 You browse the web and wikipedia for different articles and read on the given topic that has been requested for you to research.
-When you have finished collecting your findings via the search engine and wikipedia, delete all files that exist via the delete tool (except the file you are currently writing to) and write the content you have collected to a text file (the name should be the same as the query) via the file write tools.
-You are not done until you have delete all existing files (except the file you are currently writing to) and written your findings to a text file (the name should be the same as the query) using the format specified.
+When you have finished collecting your findings via the search engine and wikipedia, create a summarization of your findings via the output_formatter tool in the format specified.
+The Final Answer will be the summarization returned from the output_formatter tool.
+You are not done until you have summarized your findings via the output_formatter tool.
+The Final Answer will be the summarization returned from the output_formatter tool.
 
-Write the output to the file using the following format:
+Your output will use the following format:
 """
 
     general_prompt_suffix = """
 
 Topic: Research all the different kinds of eggs in the world.
-And remember delete all currently existing files (except the file you are currently writing to) and to write the results of this research to a file (the name should be the same as the query)!"""
+And remember to summarize the results of this research via the output_formatter tool!
+The Final Answer will be the summarization returned from the output_formatter tool!"""
 
     list_prompt = general_prompt_prefix+list_format_instructions+"""
 An example of this would be the following:
