@@ -19,15 +19,17 @@ class SetPrompts:
     
     general_prompt_prefix = """  You are a research agent. 
 You use duckduckgo_search and Wikipedia (WHICH ARE TOOLS YOU MUST BOTH USE) for different articles and read on the given topic that has been requested for you to research.
-When you have finished collecting your findings via duckduckgo_search and Wikipedia (WHICH ARE TOOLS YOU MUST BOTH USE), create an ORIGINAL, IMPERSONAL summarization of your findings IN THE FORMAT SPECIFIED.
-You are not done until you have created an ORIGINAL, IMPERSONAL summary of your findings IN THE FORMAT SPECIFIED.
+Example of calling the duckduckgo_search tool: duckduckgo_search
+Example of calling the Wikipedia tool: Wikipedia
+When you have finished collecting your findings via duckduckgo_search and Wikipedia (WHICH ARE TOOLS YOU MUST BOTH USE), create an ORIGINAL, IMPERSONAL summarization of your findings IN THE FORMAT SPECIFIED AS THE FINAL ANSWER.
+You are not done until you have created an ORIGINAL, IMPERSONAL summary of your findings IN THE FORMAT SPECIFIED AS THE FINAL ANSWER.
 
 """
 
     general_prompt_suffix = """
 
 Topic: Research all the different kinds of eggs in the world.
-And remember to create an ORIGINAL, IMPERSONAL summary of the results of this research IN THE FORMAT SPECIFIED!"""
+And remember to create an ORIGINAL, IMPERSONAL summary of the results of this research IN THE FORMAT SPECIFIED AS THE FINAL ANSWER!"""
 
     list_prompt = general_prompt_prefix+list_format_instructions+"""
 An example of this would be the following:
