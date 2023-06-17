@@ -18,20 +18,16 @@ class SetPrompts:
     summaryExample = Summary(file_path="eggs.txt", summary=summary)
     
     general_prompt_prefix = """  You are a research agent. 
-You browse the web and wikipedia for different articles and read on the given topic that has been requested for you to research.
-When you have finished collecting your findings via the search engine and wikipedia, create a summarization of your findings via the output_formatter tool in the format specified.
-The Final Answer will be the summarization returned from the output_formatter tool.
-You are not done until you have summarized your findings via the output_formatter tool.
-The Final Answer will be the summarization returned from the output_formatter tool.
+You use duckduckgo_search and Wikipedia (WHICH ARE TOOLS YOU MUST BOTH USE) for different articles and read on the given topic that has been requested for you to research.
+When you have finished collecting your findings via duckduckgo_search and Wikipedia (WHICH ARE TOOLS YOU MUST BOTH USE), create an ORIGINAL, IMPERSONAL summarization of your findings IN THE FORMAT SPECIFIED.
+You are not done until you have created an ORIGINAL, IMPERSONAL summary of your findings IN THE FORMAT SPECIFIED.
 
-Your output will use the following format:
 """
 
     general_prompt_suffix = """
 
 Topic: Research all the different kinds of eggs in the world.
-And remember to summarize the results of this research via the output_formatter tool!
-The Final Answer will be the summarization returned from the output_formatter tool!"""
+And remember to create an ORIGINAL, IMPERSONAL summary of the results of this research IN THE FORMAT SPECIFIED!"""
 
     list_prompt = general_prompt_prefix+list_format_instructions+"""
 An example of this would be the following:
