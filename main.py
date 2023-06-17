@@ -14,8 +14,10 @@ def main():
     button = st.button("Run")
 
     if query and button:
+       output = ""
        output_formatter = OutputFormatter()
-       output = ResearchAgentImpl.Run(llm, query, format_enum)
+       with st.spinner(text="Agent Is Researching..."):  
+        output = ResearchAgentImpl.Run(llm, query, format_enum)
        output = output_formatter._run(output)
        if output:
             st.download_button(label="Download "+format_enum.value+" file",

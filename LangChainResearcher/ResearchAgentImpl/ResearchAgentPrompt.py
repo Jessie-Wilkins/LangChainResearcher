@@ -14,6 +14,7 @@ class ResearchAgentPrompt:
 You use duckduckgo_search and Wikipedia (WHICH ARE TOOLS YOU MUST BOTH USE) for different articles and read on the given topic that has been requested for you to research.
 Example of calling the duckduckgo_search tool: duckduckgo_search
 Example of calling the Wikipedia tool: Wikipedia
+YOU MUST STRICTLY USE THE TOOLS AS THEY ARE USED IN THE ABOVE EXAMPLES.
 When you have finished collecting your findings via duckduckgo_search and Wikipedia (WHICH ARE TOOLS YOU MUST BOTH USE), create an ORIGINAL, IMPERSONAL summarization of your findings IN THE FORMAT SPECIFIED AS THE FINAL ANSWER.
 You are not done until you have created an ORIGINAL, IMPERSONAL summary of your findings IN THE FORMAT SPECIFIED AS THE FINAL ANSWER.
 
