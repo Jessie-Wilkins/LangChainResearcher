@@ -1,8 +1,10 @@
+from io import StringIO
 from langchain.chat_models import ChatOpenAI
 from LangChainResearcher.ResearchAgentImpl.ResearchAgentPrompt import Format
 from LangChainResearcher.ResearchAgentImpl.ResearchAgentImpl import ResearchAgentImpl
 from LangChainResearcher.ExtraTools.OutputFormatter import OutputFormatter
 import streamlit as st
+import sys
 
 def main():
     llm = ChatOpenAI(temperature=0)
@@ -16,8 +18,14 @@ def main():
     if query and button:
        output = ""
        output_formatter = OutputFormatter()
+       std_output = sys.stdout
+       output_io = StringIO()
+       sys.stdout = output_io
        with st.spinner(text="Agent Is Researching..."):  
         output = ResearchAgentImpl.Run(llm, query, format_enum)
+       sys.stdout = std_output
+       with st.expander("Log Output"):
+          st.write(output_io.getvalue())
        output = output_formatter._run(output)
        if output:
             st.download_button(label="Download "+format_enum.value+" file",
