@@ -1,7 +1,6 @@
 from langchain.agents import load_tools, initialize_agent, AgentType
-from LangChainResearcher.ExtraTools.FixedWriteFileTool import FixedWriteFileTool
 from LangChainResearcher.ResearchAgentImpl.ResearchAgentPrompt import ResearchAgentPrompt
-from langchain.tools.file_management.read import ReadFileTool
+from LangChainResearcher.ExtraTools.OutputFormatter import OutputFormatter
 from langchain.memory import ConversationBufferMemory
 
 
@@ -12,11 +11,11 @@ class ResearchAgentImpl:
 
         tools = load_tools(["ddg-search", "llm-math", "wikipedia"], llm=llm)
 
-        tools.append(FixedWriteFileTool(root_dir="./output/"))
+        tools.append(OutputFormatter())
 
         memory = ConversationBufferMemory()
 
-        agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, memory=memory)
+        agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, memory=memory, handle_parsing_errors=True)
 
         prompt_template = ResearchAgentPrompt()
 

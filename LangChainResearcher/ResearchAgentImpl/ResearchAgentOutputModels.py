@@ -6,9 +6,7 @@ class Item(BaseModel):
     # description: str = Field(description="a description of the name, item, or entity that is several sentences long.")
 
 class ItemList(BaseModel):
-    file_path: str = Field(description="the file path that the content will be written to.")
     list: List[Item] = Field(description="A list of items and their descriptions.")
         
 class Summary(BaseModel):
-    file_path: str = Field(description="the file path that the content will be written to.")
     summary: str = Field(description="Several sentences describing the results of the research.")

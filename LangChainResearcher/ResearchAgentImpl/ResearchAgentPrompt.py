@@ -10,16 +10,15 @@ class Format(Enum):
 class ResearchAgentPrompt:
     def __init__(self):
 
-        self.template_str = """ You are a research agent. 
-You browse the web and wikipedia for different articles and read on the given topic that has been requested for you to research.
-When you have finished collecting your findings via the search engine and wikipedia, write the content you have collected to a text file via the file write tools.
-You are not done until you have written your findings to a text file using the format specified.
+        self.template_str = """  You are a research agent. 
+You MUST use ALL the following tools for different articles and read on the given topic that has been requested for you to research: duckduckgo_search and Wikipedia.
+When you have finished collecting your findings via duckduckgo_search and Wikipedia tools, create an ORIGINAL, IMPERSONAL summarization of your findings IN THE FORMAT SPECIFIED AS THE FINAL ANSWER.
+You are not done until you have created an ORIGINAL, IMPERSONAL summary of your findings IN THE FORMAT SPECIFIED AS THE FINAL ANSWER.
 
-Write the output to the file using the following format:
 {format}
     
 Topic: {request}
-And remember to write the results of this research to a file!"""
+And remember to create an ORIGINAL, IMPERSONAL summary of the results of this research IN THE FORMAT SPECIFIED AS THE FINAL ANSWER!"""
 
 
 
@@ -60,7 +59,7 @@ An example of this would be the following:
         item2 = Item(item="Duck Eggs", description="Eggs that come from ducks")
         item3 = Item(item="Robin Eggs", description="Eggs that come from robins")
 
-        itemListExample = ItemList(file_path="output/eggs.txt",
+        itemListExample = ItemList(file_path="eggs.txt",
                         list=[item1, item2, item3])
                     
         return itemListExample
@@ -68,6 +67,6 @@ An example of this would be the following:
     def create_summary_example(self):
         summary = "Eggs are laid by animals and come from birds, reptiles, fish, amphibians, and even some mamals. They are also consumed in a variey of dishes."
 
-        summaryExample = Summary(file_path="output/eggs.txt", summary=summary)
+        summaryExample = Summary(file_path="eggs.txt", summary=summary)
 
         return summaryExample
